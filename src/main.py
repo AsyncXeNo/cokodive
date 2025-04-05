@@ -71,9 +71,9 @@ async def main() -> None:
                 except Exception:
                     images = []
 
-                description = driver.find_element(By.CSS_SELECTOR, '.description').get_attribute('innerText').strip()
+                description = driver.find_elements(By.CSS_SELECTOR, '.rte')[-1].get_attribute('innerText').strip()
 
-                description_image_tags = driver.find_elements(By.CSS_SELECTOR, '.description img')
+                description_image_tags = driver.find_elements(By.CSS_SELECTOR, '.rte')[-1].find_elements(By.TAG_NAME, 'img')
                 description_images = [image.get_attribute('src') for image in description_image_tags]
 
                 variant_labels = driver.find_elements(By.CSS_SELECTOR, '.swatch_options label')
