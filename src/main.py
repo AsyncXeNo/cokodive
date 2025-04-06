@@ -76,6 +76,8 @@ async def main() -> None:
                 description_image_tags = driver.find_elements(By.CSS_SELECTOR, '.rte')[-1].find_elements(By.TAG_NAME, 'img')
                 description_images = [image.get_attribute('src') for image in description_image_tags]
 
+                description_images = list(filter(lambda x: x is not None, description_images))
+
                 variant_labels = driver.find_elements(By.CSS_SELECTOR, '.swatch_options label')
                 
                 variant_info = []
