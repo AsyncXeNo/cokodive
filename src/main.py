@@ -90,7 +90,7 @@ async def main() -> None:
                     variant_info.append({
                         'name': variant_label.get_attribute('innerText').strip(),
                         'price': float(driver.find_element(By.CSS_SELECTOR, '.product__details .price .money').get_attribute('innerText').replace('$', '').replace('USD', '').replace(',', '').strip()),
-                        'image': driver.find_element(By.CSS_SELECTOR, '.product_gallery .gallery-cell.is-selected .zoomImg').get_attribute('src')
+                        'image': driver.find_element(By.CSS_SELECTOR, '.product_gallery .gallery-cell.is-selected img').get_attribute('src')
                     })
 
 
