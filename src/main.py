@@ -63,7 +63,10 @@ async def main() -> None:
 
                 price = float(driver.find_element(By.CSS_SELECTOR, '.product__details .price .money').get_attribute('innerText').replace('$', '').replace('USD', '').replace(',', '').strip())
 
-                main_image = driver.find_element(By.CSS_SELECTOR, '.product_gallery .gallery-cell.is-selected .zoomImg').get_attribute('src')
+                try:
+                    main_image = driver.find_element(By.CSS_SELECTOR, '.product_gallery .gallery-cell.is-selected .zoomImg').get_attribute('src')
+                except Exception:
+                    main_image = driver.find_element(By.CSS_SELECTOR, '.product_gallery .gallery-cell.is-selected img').get_attribute('src')
 
                 try:
                     image_cells = driver.find_elements(By.CSS_SELECTOR, '.product_gallery_nav img')
