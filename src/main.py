@@ -83,6 +83,8 @@ async def main() -> None:
                 variant_info = []
                 
                 for variant_label in variant_labels:
+                    driver.execute_script("arguments[0].scrollIntoView(true);", variant_label)
+                    time.sleep(0.25)
                     variant_label.click()
 
                     time.sleep(0.2)
